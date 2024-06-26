@@ -101,26 +101,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    // function to make sound in application on/off
-//    private void toggleSound() {
-//        AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-//        if (isSoundOn) {
-//            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
-//            soundOn.setImageResource(R.drawable.ic_lock_silent_mode);
-//            if (mediaPlayer.isPlaying()) {
-//                mediaPlayer.pause();
-//            }
-//            isSoundOn = false;
-//        } else {
-//            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
-//            soundOn.setImageResource(R.drawable.ic_lock_silent_mode_off);
-//            mediaPlayer.start();
-//            mediaPlayer.setLooping(true);
-//            isSoundOn = true;
-//        }
-//    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
