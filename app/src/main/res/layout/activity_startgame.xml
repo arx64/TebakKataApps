@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/timeRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05:00"
+        android:layout_gravity="start"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textViewTebakan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="KATA TEBAKAN DISINI"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="60dp"
+        android:textSize="50dp" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+        <TableRow>
+            <Button
+                android:id="@+id/rightGuess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="BENAR"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/passGuess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PAS"
+                android:textAllCaps="true"
+                android:layout_gravity="end" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
