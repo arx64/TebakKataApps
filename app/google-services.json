@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "741055749150",
+    "project_id": "tebakkataapps",
+    "storage_bucket": "tebakkataapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741055749150:android:a901e6ebc510a52d5ba20f",
+        "android_client_info": {
+          "package_name": "com.example.tebakkataapps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMen861IOHMLmfGoxDgxoEgFFsN27mAhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

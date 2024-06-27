@@ -21,8 +21,9 @@ public class CaraMain extends AppCompatActivity {
         backToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Main = new Intent(CaraMain.this, MainActivity.class);
-                startActivity(Main);
+                Intent mainIntent = new Intent(CaraMain.this, MainActivity.class);
+                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(mainIntent);
             }
         });
     }

@@ -13,27 +13,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btnMain, btnCaraMain;
-    ImageView soundOn, profileImage;
+    ImageView soundOn;
     boolean isSoundOn = true;
     MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (mediaPlayer == null) {
+            // Initialize MediaPlayer with sound file from raw resource
+            mediaPlayer = MediaPlayer.create(this, R.raw.sound); // sound.mp3 should be in res/raw folder
+            mediaPlayer.setLooping(true); // Set looping to true
+        }
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         btnMain = findViewById(R.id.buttonAyoMain);
         btnCaraMain = findViewById(R.id.buttonCaraMain);
-        profileImage = findViewById(R.id.profileImage);
         soundOn = findViewById(R.id.soundOn);
 
-        // Initialize MediaPlayer with sound file from raw resource
-        mediaPlayer = MediaPlayer.create(this, R.raw.sound); // sound.mp3 should be in res/raw folder
-        mediaPlayer.setLooping(true); // Set looping to true
-
         // Check initial sound state and play if sound is on
-        if (isSoundOn) {
+        if (isSoundOn && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
 
@@ -41,16 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Main = new Intent(MainActivity.this, AyoMain.class);
-                startActivity(Main);
-            }
-        });
-
-        // function listener for ImageView (Profile)
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Main = new Intent(MainActivity.this, ProfileImage.class);
+                Intent Main = new Intent(MainActivity.this, Register.class);
                 startActivity(Main);
             }
         });
@@ -104,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mediaPlayer != null) {
+        if (isFinishing() && mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;
         }

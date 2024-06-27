@@ -37,6 +37,7 @@ public class scoreGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Main = new Intent(scoreGame.this, MainActivity.class);
+                Main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(Main);
             }
         });

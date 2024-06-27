@@ -6,20 +6,18 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
     <TextView
         android:id="@+id/timeRemaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="05:00"
         android:layout_gravity="start"
-        android:textSize="30sp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:text="05:00"
         android:textAllCaps="true"
-        android:textStyle="bold"
-        />
-
-
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewTebakan"
@@ -29,7 +27,7 @@
         android:text="KATA TEBAKAN DISINI"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="60dp"
-        android:textSize="50dp" />
+        android:textSize="60dp" />
 
 
     <TableLayout
@@ -39,16 +37,16 @@
         <TableRow>
             <Button
                 android:id="@+id/rightGuess"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="132dp"
+                android:layout_height="59dp"
                 android:layout_gravity="start"
                 android:text="BENAR"
                 android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/passGuess"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="132dp"
+                android:layout_height="59dp"
                 android:text="PAS"
                 android:textAllCaps="true"
                 android:layout_gravity="end" />
