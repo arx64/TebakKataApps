@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AyoMain extends AppCompatActivity {
     Button startGame;
-    EditText kata1, kata2, kata3, kata4, kata5;
+    EditText nameUser, dateUser, kata1, kata2, kata3, kata4, kata5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class AyoMain extends AppCompatActivity {
         setContentView(R.layout.activity_beforestartgame);
 
         startGame = findViewById(R.id.startGame);
+        nameUser = findViewById(R.id.nameUser);
+        dateUser = findViewById(R.id.dateUser);
         kata1 = findViewById(R.id.tebakKata1);
         kata2 = findViewById(R.id.tebakKata2);
         kata3 = findViewById(R.id.tebakKata3);
@@ -84,6 +87,13 @@ public class AyoMain extends AppCompatActivity {
     }
 
     private void startGame() {
+//        String name = nameUser.getText().toString();
+//        String date = dateUser.getText().toString();
+        Intent registerIntent = getIntent();
+        String name = registerIntent.getStringExtra("nama");
+        String date = registerIntent.getStringExtra("tanggal");
+        Log.d("[DEBUG]", name);
+        Log.d("[DEBUG]", date);
         String kata1Text = kata1.getText().toString();
         String kata2Text = kata2.getText().toString();
         String kata3Text = kata3.getText().toString();
@@ -91,11 +101,14 @@ public class AyoMain extends AppCompatActivity {
         String kata5Text = kata5.getText().toString();
 
         Intent mulaiGame = new Intent(AyoMain.this, StartGame.class);
+        mulaiGame.putExtra("nama", name);
+        mulaiGame.putExtra("tanggal", date);
         mulaiGame.putExtra("kata1", kata1Text);
         mulaiGame.putExtra("kata2", kata2Text);
         mulaiGame.putExtra("kata3", kata3Text);
         mulaiGame.putExtra("kata4", kata4Text);
         mulaiGame.putExtra("kata5", kata5Text);
+
         startActivity(mulaiGame);
     }
 }

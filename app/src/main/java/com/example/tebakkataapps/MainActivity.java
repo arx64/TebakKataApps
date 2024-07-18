@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-    Button btnMain, btnCaraMain;
+public class  MainActivity extends AppCompatActivity {
+    Button btnMain, btnCaraMain, btnHistory;
     ImageView soundOn;
     boolean isSoundOn = true;
     MediaPlayer mediaPlayer;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnMain = findViewById(R.id.buttonAyoMain);
         btnCaraMain = findViewById(R.id.buttonCaraMain);
+        btnHistory = findViewById(R.id.buttonHistory);
         soundOn = findViewById(R.id.soundOn);
 
         // Check initial sound state and play if sound is on
@@ -53,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Main = new Intent(MainActivity.this, CaraMain.class);
+                startActivity(Main);
+            }
+        });
+
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Main = new Intent(MainActivity.this, History.class);
                 startActivity(Main);
             }
         });

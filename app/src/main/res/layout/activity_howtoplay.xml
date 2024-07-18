@@ -186,23 +186,11 @@
             android:id="@+id/menuBtn"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
             android:text="MENU"
-            android:textAllCaps="true"
             android:layout_below="@id/tableLayoutContent"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             />
-
-
-    <!-- Button to go to the main menu -->
-<!--    <Button-->
-<!--        android:id="@+id/menuBtn"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/instructions"-->
-<!--        android:text="menu"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:textAllCaps="true"-->
-<!--        />-->
 
 </RelativeLayout>

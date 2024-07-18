@@ -26,6 +26,25 @@
         <TableRow
             android:divider="@null">
 
+            <EditText
+                android:id="@+id/nameUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:visibility="gone" />
+            <EditText
+                android:id="@+id/dateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:visibility="gone" />
+
+        </TableRow>
+        <TableRow
+            android:divider="@null">
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
@@ -143,6 +162,7 @@
         android:id="@+id/startGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
         android:text="mulai"
         android:textAllCaps="true"
         android:layout_gravity="end" />

@@ -17,15 +17,13 @@ import java.util.List;
 
 public class StartGame extends AppCompatActivity {
 
-    private TextView timeRemaining;
-    private TextView textView;
+    private TextView timeRemaining, textView;
     Button btnBenar, btnPas;
-    private int tebakanBenar;
-    private int tebakanSalah;
-    private int currentIndex;
-    private List<String> kataList;
-    private List<String> remainingWords;
+    private int tebakanBenar, tebakanSalah, currentIndex;
+    String namabaru, tanggalbaru, nama, tanggal;
+    private List<String> kataList, remainingWords;
     private static final long START_TIME_IN_MILLIS = 300000; // 5 minutes in milliseconds
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,13 @@ public class StartGame extends AppCompatActivity {
         textView = findViewById(R.id.textViewTebakan);
 
         Intent intent = getIntent();
+        nama = intent.getStringExtra("nama");
+        tanggal = intent.getStringExtra("tanggal");
+
+        namabaru = nama;
+        tanggalbaru = tanggal;
+        Log.d("MainActivity", "Nama: " + nama);
+        Log.d("MainActivity", "Tanggal: " + tanggal);
 
         // Ambil data dari Intent dan simpan dalam ArrayList
         String kata1Text = intent.getStringExtra("kata1");
@@ -92,21 +97,41 @@ public class StartGame extends AppCompatActivity {
 
     private void updateTebakan() {
         tebakanSalah = 5 - tebakanBenar; // Update tebakanSalah setiap kali tebakanBenar berubah
+
+        // Deklarasikan variabel di awal metode
+//        String nama = "";
+//        String tanggal = "";
+
         if (!remainingWords.isEmpty()) {
             textView.setText(remainingWords.get(currentIndex));
         } else {
             textView.setText("Selesai!");
-            Intent scoreGame = new Intent(StartGame.this, scoreGame.class);
+//            Intent intent = getIntent();
+//
+//            // Ambil data dari Intent dan simpan dalam variabel yang dideklarasikan di awal metode
+//            nama = intent.getStringExtra("nama");
+//            tanggal = intent.getStringExtra("tanggal");
+
+            Intent scoreGame = new Intent(StartGame.this, ScoreGame.class);
+
+            scoreGame.putExtra("nama", nama);
+            scoreGame.putExtra("tanggal", tanggal);
             scoreGame.putExtra("TebakanBenar", tebakanBenar);
             scoreGame.putExtra("TebakanSalah", tebakanSalah);
             // Cetak nilai tebakanBenar untuk memverifikasi hasilnya
+            Log.d("MainActivity", "Nama: " + nama);
+            Log.d("MainActivity", "Tanggal: " + tanggal);
             Log.d("MainActivity", "Nilai tebakanBenar: " + tebakanBenar);
             Log.d("MainActivity", "Nilai tebakanSalah: " + tebakanSalah);
             startActivity(scoreGame);
         }
+        // Cetak nilai tebakanBenar untuk memverifikasi hasilnya
+        Log.d("MainActivity", "Nama: " + nama);
+        Log.d("MainActivity", "Tanggal: " + tanggal);
         Log.d("MainActivity", "Nilai tebakanBenar: " + tebakanBenar);
         Log.d("MainActivity", "Nilai tebakanSalah: " + tebakanSalah);
     }
+
 
     private void startTimer() {
         new CountDownTimer(START_TIME_IN_MILLIS, 1000) {
@@ -121,10 +146,20 @@ public class StartGame extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeRemaining.setText("00:00");
-                Intent scoreGame = new Intent(StartGame.this, scoreGame.class);
+
+//                Intent intent = getIntent();
+////                // Ambil data dari Intent dan simpan
+//                String nama = intent.getStringExtra("nama");
+//                String tanggal = intent.getStringExtra("tanggal");
+
+                Intent scoreGame = new Intent(StartGame.this, ScoreGame.class);
+                scoreGame.putExtra("nama", namabaru);
+                scoreGame.putExtra("tanggal", tanggalbaru);
                 scoreGame.putExtra("TebakanBenar", tebakanBenar);
                 scoreGame.putExtra("TebakanSalah", tebakanSalah);
                 // Cetak nilai tebakanBenar untuk memverifikasi hasilnya
+                Log.d("MainActivity", "Nama: " + namabaru);
+                Log.d("MainActivity", "Tanggal: " + tanggalbaru);
                 Log.d("MainActivity", "Nilai tebakanBenar: " + tebakanBenar);
                 Log.d("MainActivity", "Nilai tebakanSalah: " + tebakanSalah);
                 startActivity(scoreGame);

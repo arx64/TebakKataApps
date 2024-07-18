@@ -39,6 +39,7 @@
                 android:id="@+id/rightGuess"
                 android:layout_width="132dp"
                 android:layout_height="59dp"
+                android:backgroundTint="@color/blue"
                 android:layout_gravity="start"
                 android:text="BENAR"
                 android:textAllCaps="true" />
@@ -47,6 +48,7 @@
                 android:id="@+id/passGuess"
                 android:layout_width="132dp"
                 android:layout_height="59dp"
+                android:backgroundTint="@color/blue"
                 android:text="PAS"
                 android:textAllCaps="true"
                 android:layout_gravity="end" />

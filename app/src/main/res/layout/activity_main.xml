@@ -37,24 +37,39 @@
         android:id="@+id/centerCircle"
         android:layout_width="133dp"
         android:layout_height="150dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soundOn"
-        app:srcCompat="@drawable/menu" />
+        app:srcCompat="@drawable/menub" />
 
     <Button
         android:id="@+id/buttonCaraMain"
         android:layout_width="wrap_content"
         android:layout_height="59dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
         android:text="Cara Main"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonAyoMain" />
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="History"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCaraMain" />
+
 
     <!-- Button Cara Main -->
 
@@ -64,6 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="59dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
         android:text="Ayo Main"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
