@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,31 +27,33 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-        btnLanjut = (Button) findViewById(R.id.btnLanjut);
-        nama = (EditText) findViewById(R.id.etNama);
-        tanggal = (EditText) findViewById(R.id.etTanggal);
+        btnLanjut = findViewById(R.id.btnLanjut);
+        nama = findViewById(R.id.etNama);
+        tanggal = findViewById(R.id.etTanggal);
 
         dbHelper = new DatabaseHelper(this);
 
         btnLanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                namaText = nama.getText().toString();
-                tanggalText = tanggal.getText().toString();
+                if (validateInputs()) {
+                    namaText = nama.getText().toString();
+                    tanggalText = tanggal.getText().toString();
 
-                // Insert data into the database
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put("name", namaText);
-                values.put("datePlay", tanggalText);
-                db.insert("personHistory", null, values);
+                    // Insert data into the database
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    ContentValues values = new ContentValues();
+                    values.put("name", namaText);
+                    values.put("datePlay", tanggalText);
+                    db.insert("personHistory", null, values);
 
-                Intent AyoMain = new Intent(Register.this, AyoMain.class);
-                AyoMain.putExtra("nama", namaText);
-                AyoMain.putExtra("tanggal", tanggalText);
-                Log.d("[DEBUG]", namaText);
-                Log.d("[DEBUG]", tanggalText);
-                startActivity(AyoMain);
+                    Intent AyoMain = new Intent(Register.this, AyoMain.class);
+                    AyoMain.putExtra("nama", namaText);
+                    AyoMain.putExtra("tanggal", tanggalText);
+                    Log.d("[DEBUG]", namaText);
+                    Log.d("[DEBUG]", tanggalText);
+                    startActivity(AyoMain);
+                }
             }
         });
 
@@ -60,4 +63,21 @@ public class Register extends AppCompatActivity {
             return insets;
         });
     }
+
+    private boolean validateInputs() {
+        boolean isValid = true;
+
+        if (TextUtils.isEmpty(nama.getText().toString().trim())) {
+            nama.setError("Nama harus diisi");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(tanggal.getText().toString().trim())) {
+            tanggal.setError("Tanggal harus diisi");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
 }
